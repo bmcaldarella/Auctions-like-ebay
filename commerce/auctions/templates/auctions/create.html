@@ -1,0 +1,83 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<div class="card">
+      <div class="title">
+       <h2>Create New Listings</h2>
+    </div>   
+<hr>
+        <form action="{% url 'create' %}" method="POST">
+            {% csrf_token%}
+            <input type="text" class="form-control" id="title" placeholder="Title" name="title" required><br>
+        
+          <div class="text">
+             <textarea style="height:200px"; type="text" class="form-control" id="description" placeholder="Description" 
+             name="description"></textarea><br>
+          </div>
+            <input type="text" class="form-control" id="image" placeholder="URL Image" name="image"><br>
+               
+              <div class="coin">
+                <span > €</span>  
+              </div>
+            <div class="price">
+              <input type="float" class="form-control" id="price" placeholder="Price" name="price"required >
+            </div>
+
+           
+            <div class="category"> 
+              <label form="category">Category: </label>
+              <select name="category" id="category"><br>
+                  {% for allCategory in categories%}
+
+              <option value="{{allCategory}}">{{allCategory}}</option>
+              {% endfor %}
+              </select>
+            <div>
+        <div class="boton">
+        <button type="submit" class="btn btn-outline-primary">Create New Listings</button>
+        </div>
+            
+        </form>
+</div>
+
+<style>
+
+.card{
+  width:450px;
+  position: flex;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top:300px;
+  border-color:white;
+}
+.title{
+  text-align:center;
+}
+.category{
+  margin-top:20px;
+}
+.boton{
+  margin-top:10px;
+}
+.coin{
+  
+    width:20px;
+    height:30px;
+    position:absolute;
+    margin-top:6px;
+    margin-left:5px;
+    font-weight: bold;
+    
+
+    
+
+}
+.price{
+  width:200px;
+  margin-left:25px;
+}
+
+</style>
+{% endblock %}

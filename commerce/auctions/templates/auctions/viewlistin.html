@@ -1,0 +1,121 @@
+
+
+
+
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    
+   <div class="padre">
+    <div class="title">
+    <h1> My Listings<h1>
+    </div>
+    
+    </form>
+            {% for listings  in view%}
+
+              <div class="container">
+               <div class="card">
+                  <img  src=" {{listings.image}}" />
+                    <div class="product">
+                     {{listings.title}} <br>
+               </div>
+              <div class="pr">
+               Price:
+              </div>
+            <div class="price">
+              €{{listings.price.bid}}<br>
+             </div>
+              <div class="button">
+                <a href="{% url 'listingProduct' listings.id %}" class="btn btn-outline-primary" role="button">See details  </a> </div>
+              </div>
+             </div>
+
+
+  <style>
+ 
+    .title{
+    text-align:center;
+    font-size:5px;
+    color:black;
+    margin-top:30px;
+
+  }
+    .container{
+    width:350px;
+    height:440px;
+    float:left;
+   
+   }
+ .container .card{
+    height:450px;
+    border-color:white;
+    overflow:hidden;
+    margin:15px;
+    text-aling:center;
+    transition: all 0.25s;
+    padding:0 1rem;
+    }
+
+
+ .container .card img{
+    width:150px;
+    height:180px;
+    display: block;
+    margin:1px 40px;
+   }
+
+ .product{
+    position: absolute;
+    top: 180px;
+    left: 10px;
+    font-size:25px;
+    margin-top:-10px;
+    padding:1px;
+    font-family:sans-serif;
+    font-weight: 300;
+    color:black;
+   }
+
+ .price{
+   position: absolute;
+    top: 250px;
+    left: 87px;
+    font-size:30px;
+   }
+
+ .button{
+     position: absolute;
+    top: 320px;
+    left:20px;
+    
+   }
+
+ .pr{
+    position: absolute;
+    top: 258px;
+    left: 10px;
+    font-size:23px;
+    font-family:sans-serif;
+    font-weight: 300;
+    color:#4f4f4f;
+
+   }
+
+.button-8:hover,
+.button-8:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+    }
+
+.button-8:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+     }
+
+ </style>
+  {% endfor %}
+
+{% endblock %}
+
+
+

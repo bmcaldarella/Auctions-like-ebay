@@ -1,0 +1,137 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Auctions{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'static/styles.css' %}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, user-scalable=no,
+         initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
+    </head>
+    <div class="toper">
+    <body>
+    <div class="nav-1">
+    <div class="logo">
+        <img  src="https://cdn-icons-png.flaticon.com/512/1203/1203415.png?w=1380&t=st=1664707525~exp=1664708125~hmac=fdd96014a1c8b02e2ef310b712f5cc32f1ecc9c75a11f495eb409a462eb778ad" style="height: 80px">
+         </div>
+        <div class="auctions">
+        <h1>Auctions</h1>
+        </div>
+
+        <div class="user">
+            {% if user.is_authenticated %}
+                Signed in as  <strong >{{ user.username }}</strong>
+            {% else %}
+                Not signed in.
+            {% endif %}
+           
+        </div>
+        <div class="menu">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
+            </li>
+
+        <li class="nav-link" >
+
+             <form action="{% url 'listCategory' %}" method="POST">
+            {% csrf_token%}
+              <select name="category" id="category">
+              {% for allCategory in categories%}
+                <option value="{{allCategory}}">{{allCategory}}</option>
+              {% endfor %}
+              </select>
+                 <button type="submit" class="btn btn-primary">Categories</button>
+
+            </form>
+         </li>
+           
+
+
+
+           
+
+
+
+
+            {% if user.is_authenticated %}
+            <li>
+                <a class="nav-link" href="{% url 'create' %}">Create new listing</a>
+            </li>
+             <div class="j">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'viewlisting' %}">My Listing</a>
+
+            </div>
+
+            <div class="no-login">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                </li>
+                </div>
+            {% else %}
+            <div class="no-login" >
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+          
+                 </li>
+                 </div> 
+               
+            {% endif %}
+        </ul>
+       
+       </div>
+       </div>
+
+        {% block body %}
+        {% endblock %}
+    </body>
+    <style>
+    .nav-1{
+        background: linear-gradient(190deg,#6495ED,#000000);
+         margin:10px,15px,20px;
+     
+         
+       
+    }
+    .user{
+        position:absolute;
+        left:100px;
+        top:60px;
+        color:white;
+    }
+    body{
+        margin: 0 auto;
+    }
+    .auctions{
+        color:white;
+        position:absolute;
+        top:20px;
+        left:100px;
+        
+    }
+    .no-login{
+         
+        position:absolute;
+        display:flex;
+        right:9px;
+        top:40px;
+    }
+    .logo{
+        position:relative;
+        left:15px;
+        top:6px;
+    }
+    .nav-link{
+        color:white;
+    }
+    </style>
+
+</html>
+
+

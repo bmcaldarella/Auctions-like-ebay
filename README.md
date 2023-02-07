@@ -1,5 +1,5 @@
 # Auctions-like-ebay
-This project is developed with HTML5, CSS, Django, SQL. In this project an auction page was made where you can save the products that you like the most and bid for the product you want.
+This is a project made for the CS50's Web Programming with Python and JavaScript course at Harvard University,this project is developed with HTML5, CSS, Django, SQL. In this project an auction page was made where you can save the products that you like the most and bid for the product you want.
 <img width="1178" alt="Captura de pantalla 2023-02-06 a la(s) 22 09 02" src="https://user-images.githubusercontent.com/99013590/217099369-aaa26284-afeb-4362-82ab-bf79756cde97.png">
 <img width="1440" alt="Captura de pantalla 2023-02-06 a la(s) 22 09 30" src="https://user-images.githubusercontent.com/99013590/217099395-af7b39a4-cc02-4e5a-9014-b0df386a366a.png">
 <img width="1440" alt="Captura de pantalla 2023-02-06 a la(s) 22 10 06" src="https://user-images.githubusercontent.com/99013590/217099417-72c40218-c47e-4f47-8dbf-bc4c16a70eb7.png">
